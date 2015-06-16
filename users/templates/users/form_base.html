@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap %}
+{% block titulo %}
+
+{% endblock titulo %}
+
+{% block page_content %}
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <div class='intro-header no-margin-bottom' style="background-image: url({% static 'img/home-bg.jpg' %})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading custom-padding">
+                        <h1>
+                            {% block page_title %}
+                                Wordplease
+                            {% endblock page_title %}
+                        </h1>
+                        <hr class="medium">
+                        <h2 class="subheading">Loggin</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="col-xs-12 col-md-6 col-md-offset-3 center">
+                <div class="panel panel-default">
+                    <div class="panel-heading ">
+                        <h3 class='text-center'>
+                            {% block form_title %}
+
+                            {% endblock form_title %}
+                        </h3>
+                    </div>
+                    <div class="panel-body padding">
+                        {% if error %}
+                            <p style="color:red">{{error}}</p>
+                        {% endif %}
+                        <form action="" method="POST" class='user-form'>
+                            {% csrf_token %}
+                            <div class="user-fields">
+                                {{ form.as_bootstrap }}
+                            </div>
+                            <div class="padding-left-right-025 margin-top-2">
+                                <button class='btn btn-primary btn-block'>
+                                    {% block form_button %}
+
+                                    {% endblock form_button %}
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include "footer.html" %}
+    </div>
+{% endblock page_content %}
+

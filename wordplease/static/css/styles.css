@@ -1,0 +1,8 @@
+.intro-header.no-margin-bottom{
+    margin-bottom: 0;
+}
+
+.intro-header .site-heading.custom-padding, .intro-header .page-heading.custom-padding{
+  padding-bottom: 120px;
+  padding-top: 120px;
+}

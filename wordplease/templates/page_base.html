@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block page_content %}
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url({% static 'img/home-bg.jpg' %})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Wordplease</h1>
+                        <hr class="medium">
+                        <h2 class="subheading">Blogging made easy</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    <hr>
+
+    {% include "footer.html" %}
+{% endblock page_content %}

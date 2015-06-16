@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/clean-blog.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <!--<link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">-->
+    <title>
+        {% block titulo %}
+            Wordplease
+        {% endblock titulo %}
+    </title>
+</head>
+<body>
+    {% include "menu.html" %}
+
+    {% block content %}
+
+    {% endblock content %}
+
+
+    <footer class='container'>
+        <hr/>
+        &copy; 2015, Wordplease co.
+    </footer>
+
+    <script src="{% static 'js/jquery.js' %}"> </script>
+    <script src="{% static 'js/bootstrap.min.js' %}"> </script>
+</body>
+</html>
