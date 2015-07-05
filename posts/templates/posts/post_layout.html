@@ -5,7 +5,7 @@
         </h2>
         <h3 class="post-subtitle">{{post.summary | truncatewords:20}}</h3>
     </a>
-    <p class="post-meta">Posted by <a href="#">{{post.author.username}}</a> on {{post.pub_date}}</p>
+    <p class="post-meta">Posted by <a href="{% url 'blog' post.author.username %}">{{post.author.username}}</a> on {{post.pub_date}}</p>
 </div>
 {% if object_list|length > 1%}
     <hr/>

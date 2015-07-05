@@ -3,6 +3,7 @@ from django.db import models
 
 # Create your models here.
 from django.utils import timezone
+from django.templatetags.static import static
 
 
 class Category(models.Model):
@@ -26,3 +27,9 @@ class Post(models.Model):
     @staticmethod
     def published_posts():
         return Post.objects.filter(pub_date__lte=timezone.now())
+
+    def get_image(self):
+        if self.thumbnail:
+            return self.thumbnail
+        else:
+            return static("img/post-default.jpg")

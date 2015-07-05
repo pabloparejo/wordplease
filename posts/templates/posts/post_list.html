@@ -15,5 +15,7 @@
         {% empty %}
             {{blog_author}} has not published any posts yet!
         {% endfor %}
+        <div class="clearfix"></div>
+        {% include "posts/pagination.html" with button_title="posts" %}	
     </div>
 {% endblock content %}

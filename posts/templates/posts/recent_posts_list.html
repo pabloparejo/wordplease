@@ -9,5 +9,7 @@
         {% for post in object_list %}
             {% include "posts/post_layout.html" with post=post %}
         {% endfor %}
+        <div class="clearfix"></div>
+        {% include "posts/pagination.html" with button_title="posts" %}
     </div>
 {% endblock content %}

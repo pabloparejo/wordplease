@@ -1,11 +1,11 @@
 {% extends 'page_base.html' %}
 
 {% block heading %}
-    Our blogs
+    Wordplease
 {% endblock heading %}
 
 {% block subheading %}
-    Wordplease
+    Our blogs
 {% endblock subheading %}
 
 {% block content %}
@@ -18,9 +18,9 @@
                     </a>
                     <div class="caption">
                         <a href="{% url 'blog' author.username %}">
-                            <h3 class='margin-bottom'>{{user.username}}</h3>
+                            <h3 class='margin-bottom'>{{author.username}}</h3>
                         </a>
-                        <p class="margin-top">
+                        <p class="margin-top posts-count">
                             {% with author.post_set.count as post_count %}
                                 {{post_count}} post{{pluralize}}
                             {% endwith %}
@@ -32,7 +32,8 @@
                 <div class="clearfix hidden-xs hidden-sm"></div>
             {% endif %}
         {% empty %}
-            {{blog_author}} has not published any posts yet!
+            We haven't any blogs yet!
         {% endfor %}
+        <div class="clearfix"></div>
     </div>
 {% endblock content %}

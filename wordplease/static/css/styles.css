@@ -1,12 +1,43 @@
+
+
+a.color-white:hover{
+    color: #337ab7;
+}
+
+.badge{
+	font-style: normal;
+	font-weight: normal;
+}
+.badge.tag{
+	font-size: 1.4rem;
+	padding: 4px 8px;
+}
+
 .intro-header.no-margin-bottom{
     margin-bottom: 0;
 }
 
-.intro-header .site-heading.custom-padding, .intro-header .page-heading.custom-padding{
-  padding-bottom: 120px;
-  padding-top: 120px;
+.posts-count{
+	font-family: 'Roboto Slab', 'Cambria', 'Times New Roman', serif;
+	font-style: italic;
+	font-weight: 300;
+	font-size: 1.6rem;
 }
 
-a.color-white:hover{
-    color: #337ab7;
+@media only screen and (min-width: 768px) {
+	.intro-header .site-heading.custom-padding, .intro-header .page-heading.custom-padding{
+		padding-bottom: 100px;
+		padding-top: 100px;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+	.intro-header .site-heading.custom-padding, .intro-header .page-heading.custom-padding{
+		padding-bottom: 120px;
+		padding-top: 120px;
+	}
 }

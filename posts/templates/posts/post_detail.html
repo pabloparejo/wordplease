@@ -1,31 +1,36 @@
 {% extends 'page_base.html' %}
 
-{% block heading %}
-    {{object.title}}
-{% endblock heading %}
+{% block header_background_url %}
+    {{ object.get_image }}
+{% endblock header_background_url %}
 
-{% block subheading %}
-    {{object.author}}
-{% endblock subheading %}
+
+
+{% block site_heading %}
+    <div class="post-heading">
+        <h1>{{object.title}}</h1>
+        <h2 class="subheading">{{object.summary}}</h2>
+        <span class="meta">Posted by <a href="{% url 'blog' object.author.username %}">{{object.author}}</a> on August 24, 2014</span>
+    </div>
+{% endblock site_heading %}
+
 
 {% block content %}
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <h2>
-            <blockquote>
-                {{object.summary}}
-            </blockquote>
-        </h2>
-        <p>
-            {{object.content}}
-        </p>
+        <div class="post">
+            <h1>ASDF</h1>
+            <p>
+                {{object.content}}
+            </p>
+        </div>
         <hr/>
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <h3>{{object.author}}</h3>
-                <p class="post-meta">
+        <div class='background-grey padding'>
+            <h3>{{object.author}}</h3>
+            <p class="margin-top margin-bottom">
+                <em>
                     Posted on {{post.pub_date}}
-                </p>
-            </div>
+                </em>
+            </p>
         </div>
 
     </div>

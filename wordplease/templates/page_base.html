@@ -3,24 +3,28 @@
 {% block page_content %}
 
     <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url({% static 'img/home-bg.jpg' %})">
+    <!-- Set background image -->
+    <header class="intro-header" style="background-image: url(  {% block header_background_url %}
+                                                                    {% static 'img/home-bg.jpg' %}
+                                                                {% endblock header_background_url %})">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>
-                            {% block heading %}
-                                Wordplease
-                            {% endblock heading %}
-                        </h1>
-                        <hr class="medium">
-                        <h2 class="subheading">
-                            {% block subheading %}
-                                Blogging made easy
-                            {% endblock subheading %}
-                        </h2>
-                    </div>
+                    {% block site_heading %}
+                        <div class="site-heading">
+                            <h1>
+                                {% block heading %}
+                                    Wordplease
+                                {% endblock heading %}
+                            </h1>
+                            <hr class="medium">
+                            <h2 class="subheading">
+                                {% block subheading %}
+                                    Blogging made easy
+                                {% endblock subheading %}
+                            </h2>
+                        </div>
+                    {% endblock site_heading %}
                 </div>
             </div>
         </div>
