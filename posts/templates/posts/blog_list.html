@@ -1,0 +1,38 @@
+{% extends 'page_base.html' %}
+
+{% block heading %}
+    Our blogs
+{% endblock heading %}
+
+{% block subheading %}
+    Wordplease
+{% endblock subheading %}
+
+{% block content %}
+    <div class=" col-md-10 col-md-offset-1">
+        {% for author in object_list %}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a href="{% url 'blog' author.username %}">
+                        <img src="https://josetorregrosa.files.wordpress.com/2013/01/django-unchained04.jpg" alt="{{user.username}}'s blog">
+                    </a>
+                    <div class="caption">
+                        <a href="{% url 'blog' author.username %}">
+                            <h3 class='margin-bottom'>{{user.username}}</h3>
+                        </a>
+                        <p class="margin-top">
+                            {% with author.post_set.count as post_count %}
+                                {{post_count}} post{{pluralize}}
+                            {% endwith %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3%}
+                <div class="clearfix hidden-xs hidden-sm"></div>
+            {% endif %}
+        {% empty %}
+            {{blog_author}} has not published any posts yet!
+        {% endfor %}
+    </div>
+{% endblock content %}

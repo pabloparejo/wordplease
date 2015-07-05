@@ -21,4 +21,8 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
 
     def __unicode__(self):
-        return self.user.username + " - " + self.title
+        return self.author.username + " - " + self.title
+
+    @staticmethod
+    def published_posts():
+        return Post.objects.filter(pub_date__lte=timezone.now())

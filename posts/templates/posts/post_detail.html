@@ -1,0 +1,32 @@
+{% extends 'page_base.html' %}
+
+{% block heading %}
+    {{object.title}}
+{% endblock heading %}
+
+{% block subheading %}
+    {{object.author}}
+{% endblock subheading %}
+
+{% block content %}
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <h2>
+            <blockquote>
+                {{object.summary}}
+            </blockquote>
+        </h2>
+        <p>
+            {{object.content}}
+        </p>
+        <hr/>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h3>{{object.author}}</h3>
+                <p class="post-meta">
+                    Posted on {{post.pub_date}}
+                </p>
+            </div>
+        </div>
+
+    </div>
+{% endblock content %}

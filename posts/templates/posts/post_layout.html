@@ -1,0 +1,12 @@
+<div class="post-preview">
+    <a href="{% url 'post' post.author post.pk%}">
+        <h2 class="post-title">
+            {{post.title}}
+        </h2>
+        <h3 class="post-subtitle">{{post.summary | truncatewords:20}}</h3>
+    </a>
+    <p class="post-meta">Posted by <a href="#">{{post.author.username}}</a> on {{post.pub_date}}</p>
+</div>
+{% if object_list|length > 1%}
+    <hr/>
+{% endif %}
