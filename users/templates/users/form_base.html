@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% load bootstrap %}
+{% load bootstrap_tags %}
 {% block titulo %}
 
 {% endblock titulo %}
@@ -20,7 +20,7 @@
                             {% endblock page_title %}
                         </h1>
                         <hr class="medium">
-                        <h2 class="subheading">Loggin</h2>
+                        <h2 class="subheading"><em>Welcome to the best blogging experience</em></h2>
                     </div>
                 </div>
             </div>
@@ -37,27 +37,29 @@
                     </div>
                     <div class="panel-body padding">
                         {% if error %}
-                            <p style="color:red">{{error}}</p>
+                            <p class='text-center color-alert margin'>{{error}}</p>
                         {% endif %}
-                        <form action="" method="POST" class='user-form'>
+
+                        <form action="" method="POST" class='form-vertical'>
                             {% csrf_token %}
-                            <div class="user-fields">
-                                {{ form.as_bootstrap }}
-                            </div>
-                            <div class="padding-left-right-025 margin-top-2">
-                                <button class='btn btn-primary btn-block'>
-                                    {% block form_button %}
+                            {{ form|as_bootstrap }}
+                            <div class="form-actions">
+                              <button class="btn btn-primary pull-right btn-block">
+                                  {% block form_button %}
 
-                                    {% endblock form_button %}
-                                </button>
+                                  {% endblock form_button %}
+                              </button>
                             </div>
-
                         </form>
                     </div>
                 </div>
+                <div class="padding-top-bottom margin-bottom">
+                    {% block form_bottom %}
+                    {% endblock form_bottom %}
+                </div>
             </div>
         </div>
-        {% include "footer.html" %}
     </div>
+    {% include "footer.html" %}
 {% endblock page_content %}
 

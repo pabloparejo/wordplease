@@ -265,7 +265,9 @@ left-0 {
 .no-margin-bottom{
   margin-bottom: 0;
 }
-
+.margin{
+  margin: 1rem;
+}
 .margin-left {
   margin-left: 1rem;
 }

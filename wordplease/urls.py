@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-
+from users.views import LoginView
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', "users.views.logout", name="home"),
+    url(r'^$', LoginView.as_view(), name="home"),
     url(r'^users/', include("users.urls")),
 ]

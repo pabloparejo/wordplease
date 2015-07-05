@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login as django_login, logout as d
 from django.contrib.auth.models import User
 from django.views.generic import View, FormView, ListView
 
-from forms import LoginForm
+from forms import LoginForm, SignUpForm
 from django.contrib.auth.forms import UserCreationForm
 
 
@@ -37,12 +37,12 @@ class LoginView(View):
 
 def logout(request):
     django_logout(request)
-    return redirect("photos")
+    return reverse_lazy("/")
 
 
 class SignupView(FormView):
     template_name = "users/signup.html"
-    form_class = UserCreationForm
+    form_class = SignUpForm
     success_url = reverse_lazy("login")
 
     def form_valid(self, form):
@@ -51,8 +51,6 @@ class SignupView(FormView):
         password = form.cleaned_data.get("password1", "")
         user = authenticate(username=username, password=password)
 
-        Profile.objects.create(user=user)
-
         django_login(self.request, user)
 
-        return redirect("photos")
+        return redirect("/")
