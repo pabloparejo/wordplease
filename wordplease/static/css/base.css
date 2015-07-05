@@ -44,6 +44,12 @@ body.full-height {
 .background-white {
   background: #fafafa;
 }
+.block{
+  display: block;
+}
+.border{
+  border: 1px solid #eee;
+}
 .circle.huge {
   font-size: 5rem;
   text-align: center;
@@ -284,6 +290,21 @@ left-0 {
 .margin-top-2 {
   margin-top: 2rem;
 }
+.margin-bottom {
+  margin-bottom: 1rem;
+}
+.margin-bottom-025 {
+  margin-bottom: 0.25rem;
+}
+.margin-bottom-05 {
+  margin-bottom: 0.5rem;
+}
+.margin-bottom-15 {
+  margin-bottom: 1.5rem;
+}
+.margin-bottom-2 {
+  margin-bottom: 2rem;
+}
 .no-wrap {
   white-space: nowrap;
 }
@@ -339,6 +360,10 @@ left-0 {
 .padding-left-2 {
   padding-left: 2rem;
 }
+.padding-left-right{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 .padding-top {
   padding-top: 1rem;
 }
@@ -359,6 +384,9 @@ left-0 {
 .padding-top-bottom-5 {
   padding-bottom: 5rem;
   padding-top: 5rem;
+}
+.radius{
+  border-radius: .5rem;
 }
 .relative {
   position: relative;

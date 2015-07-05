@@ -10,7 +10,7 @@
     <div class="post-heading">
         <h1>{{object.title}}</h1>
         <h2 class="subheading">{{object.summary}}</h2>
-        <span class="meta">Posted by <a href="{% url 'blog' object.author.username %}">{{object.author}}</a> on August 24, 2014</span>
+        <span class="meta">Posted by <a href="{% url 'blog' object.author.username %}">{{object.author}}</a> on {{object.pub_date}}</span>
     </div>
 {% endblock site_heading %}
 
@@ -24,7 +24,7 @@
             </p>
         </div>
         <hr/>
-        <div class='background-grey padding'>
+        <div class='border radius padding'>
             <h3>{{object.author}}</h3>
             <p class="margin-top margin-bottom">
                 <em>

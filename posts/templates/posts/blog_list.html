@@ -1,5 +1,5 @@
 {% extends 'page_base.html' %}
-
+{% load dict_filters %}
 {% block heading %}
     Wordplease
 {% endblock heading %}
@@ -13,9 +13,9 @@
         {% for author in object_list %}
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <a href="{% url 'blog' author.username %}">
+                    <!--<a href="{% url 'blog' author.username %}">
                         <img src="https://josetorregrosa.files.wordpress.com/2013/01/django-unchained04.jpg" alt="{{user.username}}'s blog">
-                    </a>
+                    </a>-->
                     <div class="caption">
                         <a href="{% url 'blog' author.username %}">
                             <h3 class='margin-bottom'>{{author.username}}</h3>
@@ -25,6 +25,18 @@
                                 {{post_count}} post{{pluralize}}
                             {% endwith %}
                         </p>
+                        <div class="overflow-hidden">
+                            <div class="block padding-bottom">
+                                <small class='border-bottom padding-left-right'>Categories</small>
+                            </div>
+                            {% with author.pk as key %}
+                                {% for category in categories|get_key:key %}
+                                    <a href="#" class='badge tag margin-bottom-05'>{{category}}</a>
+                                {% empty %}
+                                    <small>No categories yet</small>
+                                {% endfor %}
+                            {% endwith %}
+                        </div>
                     </div>
                 </div>
             </div>

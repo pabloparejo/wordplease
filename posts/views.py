@@ -7,8 +7,18 @@ from django.views.generic import ListView, DetailView
 class BlogListView(ListView):
     template_name = "posts/blog_list.html"
     def get_queryset(self):
-
         return User.objects.filter(pk__in=Post.published_posts().values('author__pk'))
+
+    def get_context_data(self, **kwargs):
+        context = super(BlogListView, self).get_context_data(**kwargs)
+        posts = Post.published_posts().filter(author__pk__in=self.object_list.values("pk"))
+        categories = posts.values("categories", "pk")
+        categories_dict = {}
+        for category in categories:
+            categories_dict[str(category["pk"])] = category["categories"]
+
+        context['categories'] = categories_dict
+        return context
 
 
 class PostDetailView(DetailView):
