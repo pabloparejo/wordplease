@@ -16,8 +16,10 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from users.views import LoginView
+from posts.views import RecentPostsListView
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', LoginView.as_view(), name="home"),
-    url(r'^users/', include("users.urls")),
+    url(r'^$', RecentPostsListView.as_view(), name="home"),
+    url(r'^blogs/', include("posts.urls")),
+    url(r'^', include("users.urls")),
 ]

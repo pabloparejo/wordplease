@@ -19,6 +19,9 @@ class LoginView(FormView):
         if user:
             django_login(self.request, user)
 
+        return redirect("home")
+
+
 
 
 def logout(request):
