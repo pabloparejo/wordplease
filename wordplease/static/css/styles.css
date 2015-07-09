@@ -24,6 +24,10 @@ a.color-white:hover{
 	font-size: 1.6rem;
 }
 
+.intro-header .post-heading .subheading{
+  line-height: 1.25;
+}
+
 @media only screen and (min-width: 768px) {
 	.intro-header .site-heading.custom-padding, .intro-header .page-heading.custom-padding{
 		padding-bottom: 100px;

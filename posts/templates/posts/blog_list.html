@@ -1,5 +1,4 @@
 {% extends 'page_base.html' %}
-{% load dict_filters %}
 {% block heading %}
     Wordplease
 {% endblock heading %}
@@ -25,18 +24,6 @@
                                 {{post_count}} post{{pluralize}}
                             {% endwith %}
                         </p>
-                        <div class="overflow-hidden">
-                            <div class="block padding-bottom">
-                                <small class='border-bottom padding-left-right'>Categories</small>
-                            </div>
-                            {% with author.pk as key %}
-                                {% for category in categories|get_key:key %}
-                                    <a href="#" class='badge tag margin-bottom-05'>{{category}}</a>
-                                {% empty %}
-                                    <small>No categories yet</small>
-                                {% endfor %}
-                            {% endwith %}
-                        </div>
                     </div>
                 </div>
             </div>
