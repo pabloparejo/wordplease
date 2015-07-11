@@ -1,7 +1,9 @@
 from django.contrib.auth.models import User
+from django.shortcuts import redirect
+from posts.forms import PostForm
 from posts.models import Post
 # Create your views here.
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, FormView
 
 
 class BlogListView(ListView):
@@ -33,3 +35,14 @@ class RecentPostsListView(ListView):
     template_name = "posts/recent_posts_list.html"
     def get_queryset(self):
         return Post.published_posts().order_by("-pub_date")
+
+
+class NewPostFormView(FormView):
+    form_class = PostForm
+    template_name = "posts/new_post.html"
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.author = self.request.user
+        self.object.save()
+        return redirect("post", self.object.author, self.object.pk)
