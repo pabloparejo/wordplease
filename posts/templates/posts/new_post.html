@@ -1,0 +1,24 @@
+{% extends 'page_base.html' %}
+{% load bootstrap_tags %}
+{% block heading %}
+    Wordplease
+{% endblock heading %}
+
+{% block subheading %}
+    Our blogs
+{% endblock subheading %}
+
+{% block content %}
+    <div class=" col-md-8 col-md-offset-2">
+        <form action="" method="POST" class='form-vertical padding overflow-hidden'>
+            {% csrf_token %}
+            {{ form|as_bootstrap }}
+            <div class="form-actions">
+                <button class="btn btn-primary pull-right btn-block">
+                    New post
+                </button>
+            </div>
+        </form>
+        <div class="clearfix"></div>
+    </div>
+{% endblock content %}
