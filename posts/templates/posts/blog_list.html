@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            {% if forloop.counter|divisibleby:3%}
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
                 <div class="clearfix hidden-xs hidden-sm"></div>
             {% endif %}
         {% empty %}
