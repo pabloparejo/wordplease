@@ -10,6 +10,9 @@ class Category(models.Model):
     title = models.CharField(max_length=255)
     pub_date = models.DateField(auto_now=True)
 
+    def __unicode__(self):
+        return self.title
+
 class Post(models.Model):
 
     author = models.ForeignKey(User)
@@ -18,7 +21,7 @@ class Post(models.Model):
     content = models.TextField()
     pub_date = models.DateTimeField(auto_created=True, default=timezone.now)
     summary = models.TextField()
-    thumbnail = models.URLField(null=True, blank=True)
+    image = models.URLField(null=True, blank=True)
     title = models.CharField(max_length=255)
 
     def __unicode__(self):
@@ -29,7 +32,10 @@ class Post(models.Model):
         return Post.objects.filter(pub_date__lte=timezone.now())
 
     def get_image(self):
-        if self.thumbnail:
-            return self.thumbnail
+        if self.image:
+            return self.image
         else:
             return static("img/post-default.jpg")
+
+    class Meta:
+        ordering = ("-pub_date",)
