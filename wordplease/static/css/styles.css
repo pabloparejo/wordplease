@@ -4,15 +4,6 @@ a.color-white:hover{
     color: #337ab7;
 }
 
-.badge{
-	font-style: normal;
-	font-weight: normal;
-}
-.badge.tag{
-	font-size: 1.4rem;
-	padding: 4px 8px;
-}
-
 .intro-header.no-margin-bottom{
     margin-bottom: 0;
 }
@@ -25,7 +16,7 @@ a.color-white:hover{
 }
 
 .intro-header .post-heading .subheading{
-  line-height: 1.25;
+  line-height: 1.3;
 }
 
 @media only screen and (min-width: 768px) {
