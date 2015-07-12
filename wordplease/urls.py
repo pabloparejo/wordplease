@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^blogs/', include("posts.urls")),
     url(r'^', include("users.urls")),
     url(r'^api/v1/', include("users.api_urls")),
+    url(r'^api/v1/', include("posts.api_urls")),
 ]
