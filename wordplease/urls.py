@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^$', RecentPostsListView.as_view(), name="home"),
     url(r'^blogs/', include("posts.urls")),
     url(r'^', include("users.urls")),
+    url(r'^api/v1/', include("users.api_urls")),
 ]
