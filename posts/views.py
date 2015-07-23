@@ -9,7 +9,8 @@ from django.views.generic import ListView, DetailView, FormView
 class BlogListView(ListView):
     template_name = "posts/blog_list.html"
     def get_queryset(self):
-        return User.objects.filter(pk__in=Post.published_posts().values('author__pk'))
+        #users who have posts ids gte 1
+        return User.objects.filter(post__isnull=False)
 
 
 class PostDetailView(DetailView):
