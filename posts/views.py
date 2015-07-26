@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
+from django.utils import timezone
 from posts.forms import PostForm
 from posts.models import Post
 # Create your views here.
@@ -10,7 +11,7 @@ class BlogListView(ListView):
     template_name = "posts/blog_list.html"
     def get_queryset(self):
         #users who have posts ids gte 1
-        return User.objects.filter(post__isnull=False)
+        return Post.get_authors()
 
 
 class PostDetailView(DetailView):
