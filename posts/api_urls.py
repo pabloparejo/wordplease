@@ -9,6 +9,5 @@ router.register(r'posts', PostsViewSet, base_name="")
 urlpatterns = patterns('',
     # api urls
     url(r'', include(router.urls)),
-    url(r'blogs/', BlogsAPIView.as_view()),
-    url(r'blogs/(?P<username>[\w.@+-]+)', BlogsAPIView.as_view(), name="api_blog"),
+    url(r'blogs/$', BlogsAPIView.as_view()),
 )
