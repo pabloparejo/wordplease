@@ -18,7 +18,6 @@ class UserViewSet(ModelViewSet):
     def list(self, request, *args, **kwargs):
         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
-
     def perform_create(self, serializer):
         password = serializer.validated_data.get("password")
         serializer.save(password=make_password(password))

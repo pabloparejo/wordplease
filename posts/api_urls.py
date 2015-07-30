@@ -6,5 +6,5 @@ from rest_framework.routers import DefaultRouter
 urlpatterns = patterns('',
     # api urls
     url(r'blogs/', BlogsAPIView.as_view()),
-    url(r'blogs/(?P<username>[\w.@+-]+)', BlogsAPIView.as_view(), name="blog"),
+    url(r'blogs/(?P<username>[\w.@+-]+)', BlogsAPIView.as_view(), name="api_blog"),
 )
