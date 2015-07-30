@@ -31,6 +31,10 @@ class Post(models.Model):
     def published_posts():
         return Post.objects.filter(pub_date__lte=timezone.now())
 
+    @staticmethod
+    def get_authors():
+        return User.objects.filter(post__isnull=False, pub_date__lte=timezone.now())
+
     def get_image(self):
         if self.image:
             return self.image
