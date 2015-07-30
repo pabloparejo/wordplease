@@ -25,4 +25,4 @@ class PostSerializer(ModelSerializer):
 
 class PostListSerializer(PostSerializer):
     class Meta(PostSerializer.Meta):
-        fields = ("pk","title", "image", "summary", "pub_date")
+        fields = ("pk", "title", "image", "summary", "pub_date")
