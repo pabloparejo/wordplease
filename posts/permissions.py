@@ -15,6 +15,6 @@ class PostPermissions(BasePermission):
             return True
         elif view.action:
             if view.action.upper() == "RETRIEVE":
-                return obj.pub_date >= timezone.now()
+                return obj.pub_date <= timezone.now()
 
         return False

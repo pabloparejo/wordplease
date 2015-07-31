@@ -7,10 +7,9 @@ from users.serializers import UserSerializer
 
 
 class BlogSerializer(ModelSerializer):
-    blog = serializers.HyperlinkedIdentityField(view_name="blog",
+    blog = serializers.HyperlinkedIdentityField(view_name="api-posts-list",
                                                 read_only=True,
-                                                lookup_field="username",
-                                                source="username")
+                                                lookup_field="username")
 
     class Meta:
         model = User
@@ -18,11 +17,16 @@ class BlogSerializer(ModelSerializer):
 
 
 class PostSerializer(ModelSerializer):
-    author = UserSerializer(read_only=True)
     class Meta:
         model = Post
+        exclude = ("author",)
+
+class PostDetailSerializer(PostSerializer):
+    author = UserSerializer(read_only=True)
+    categories = serializers.SlugRelatedField("title", read_only=True, many=True)
 
 
-class PostListSerializer(PostSerializer):
-    class Meta(PostSerializer.Meta):
+class PostListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Post
         fields = ("pk", "title", "image", "summary", "pub_date")
